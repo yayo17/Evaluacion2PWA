@@ -76,24 +76,22 @@ function App() {
     setId("")
   }
 
-  /* const deleteTask= async (id)=>{
-   const result=await deleteDocument ("tasks", id)
-   if(!result.statusResponse)
-   {
-   setError (result.error)
-   return
-   }
+  const deleteTask = async (id) => {
+    const result = await deleteDocument("tasks", id)
+    if (!result.statusResponse) {
+      setError(result.error)
+      return
+    }
 
-   const filteredTasks=tasks.filter(task=>task.id !==id) 
-   setTasks(filteredTasks) 
- }*/
+    const filteredTasks = tasks.filter(task => task.id !== id)
+    setTasks(filteredTasks)
+  }
 
-  /*
-  const editTask=(tarea)=>{ 
-  setTask (tarea.name)
-  setEditMode(true) 
-  setId(tarea.id)
-    }*/
+  const editTask = (tarea) => {
+    setTask(tarea.name)
+    setEditMode(true)
+    setId(tarea.id)
+  }
 
   return (
     <>
@@ -115,10 +113,10 @@ function App() {
                         {task.name}
                         <button
                           className="btn btn-danger btn-sm float-right mx-2"
-                        //onclick={()=>deleteTask(task.id)}
+                          onclick={() => deleteTask(task.id)}
                         >Eliminar</button>
                         <button className="btn btn-warning btn-sm float-right"
-                        //onclick={()=> editTask (task)}
+                          onclick={() => editTask(task)}
                         >
                           Editar
                         </button>
