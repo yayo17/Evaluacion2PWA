@@ -7,7 +7,7 @@ const CACHE_NAME = 'v1_cache_Pizzas',
         'https://fonts.gstatic.com/s/raleway/v12/1Ptrg8zYS_SKggPNwJYtWqZPAA.woff2',
         'https://use.fontawesome.com/releases/v5.0.7/css/all.css',
         'https://use.fontawesome.com/releases/v5.0.6/webfonts/fa-brands-400.woff2',
-        './style.css',
+        './src/App.js',
         './script.js',
         './img/Pizzalogo.png',
         './img/Pizzalogo.png'

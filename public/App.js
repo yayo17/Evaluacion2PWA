@@ -10,6 +10,9 @@ function App() {
   const [task, setTask] = useState("")
   const [task2, setTask2] = useState("")
   const [task3, setTask3] = useState("")
+  const [task4, setTask4] = useState("")
+  const [task5, setTask5] = useState("")
+  const [task6, setTask6] = useState("")
 
   const [tasks, setTasks] = useState([])
   const [editMode, setEditMode] = useState(false)
@@ -35,7 +38,7 @@ function App() {
       return
     }
 
-    const result = await addDocument("tasks", { name: task, descripcion: task2, fecha: task3 })
+    const result = await addDocument("tasks", { name: task, descripcion: task2, fecha: task3, profe: task4, cuatri: task5, minombre: task6 })
     if (!result.statusResponse) {
       setError(result.error)
       return
@@ -58,7 +61,7 @@ function App() {
       return
     }
 
-    const result = await updateDocument("tasks", id, { name: task }, { descripcion: task2 }, { fecha: task3 })
+    const result = await updateDocument("tasks", id, { name: task }, { descripcion: task2 }, { fecha: task3 }, { profe: task4 }, { cuatri: task5 }, { minombre: task6 })
     if (!result.statusResponse) {
       setError(result.error)
 
@@ -146,13 +149,39 @@ function App() {
               />
 
               <input
+                type="text"
+                className="form-control mb-2"
+                placeholder="Ingresa el nombre del profesor"
+                onChange={(text) => setTask4(text.target.value)}
+                value={task4}
+              />
+
+              <input
+                type="text"
+                className="form-control mb-2"
+                placeholder="Ingresa el cuatrimestre"
+                onChange={(text) => setTask5(text.target.value)}
+                value={task5}
+              />
+
+              <input
+                type="text"
+                className="form-control mb-2"
+                placeholder="Ingresa tu nombre"
+                onChange={(text) => setTask6(text.target.value)}
+                value={task6}
+              />
+
+              <input
                 type="date"
                 className="form-control mb-2"
                 placeholder="Ingresa "
                 onChange={(text) => setTask3(text.target.value)}
                 value={task3}
               />
-              <button className={editMode ? "btn btn-warning btn-block" : "btn btn-dark btn-block"}
+
+
+              <button className={editMode ? "btn btn-info btn-block" : "btn btn-primary btn-block"}
                 type="submit"> {editMode ? "Guardar" : "Agregar"} </button>
             </form>
           </div>
